@@ -18,13 +18,13 @@ const {
   IS_PROD,
   COOKIE_NAME
 } = require("./config/config");
-const { MongoURI } = require("./config/database");
+// const { MongoURI } = require("./config/database");
 const MAX_AGE = 1000 * 60 * 60 * 3; // Three hours
 // const IS_PROD = NODE_ENV === "production";
 
 // Connecting to Database
 mongoose
-  .connect(MongoURI, {
+  .connect("mongodb://localhost:27017/ProFrnz", {
     useNewUrlParser: true,
     useCreateIndex: true
   })
@@ -33,7 +33,7 @@ mongoose
 
 // setting up connect-mongodb-session store
 const mongoDBstore = new MongoDBStore({
-  uri: MongoURI,
+  uri: "mongodb://localhost:27017/ProFrnz",
   collection: "mySessions"
 });
 

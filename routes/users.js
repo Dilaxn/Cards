@@ -4,7 +4,7 @@ const { registerUser, loginUser, logoutUser, authChecker } = require("../control
 const { registerLimiter, loginLimiter } = require("../utils/rateLimiter");
 
 // Registers a new User
-router.post("/register", registerLimiter, registerUser );
+router.post("/register", registerUser );
 
 // Logs In a User, creates session in mongo store
 // and returns a cookie containing sessionID, also called "session-id"
